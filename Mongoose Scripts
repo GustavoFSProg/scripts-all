@@ -1,0 +1,7 @@
+
+mongoose.connect(process.env.DATABASE_KEY, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+})

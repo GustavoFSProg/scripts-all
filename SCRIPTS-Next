@@ -1,0 +1,9 @@
+
+ Instalar o next js:
+
+    npx create-next-app <AppName> 
+
+ Installar o typescript no next js
+
+yarn add typescript @types/react @types/node -D
+
