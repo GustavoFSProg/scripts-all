@@ -1,0 +1,193 @@
+﻿
+Primeiramente vamos alterar a senha do usuário postgres:
+
+ sudo passwd postgres
+
+Após executar o comando aparecerão as seguintes mensagens:
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+
+Digite a sua senha e redigite a mesma em seguida. Feito isso, iremos logar com o usuário postgres.
+
+ su postgres
+
+A senha que será exigida é a mesma que acabamos de alterar.
+
+Agora vamos alterar a senha para conectar ao banco.
+
+Este comando é para a versão 7 ou superior:
+
+ psql -c "ALTER USER postgres WITH PASSWORD 'nova_senha'" -d template1
+
+Onde nova_senha será a senha que você deseja.
+
+Pronto, agora você pode realizar a conexão no seu banco de dados perfeitamente.
+
+
+Sintaxe do comando createdb
+$ createdb [parâmetros_conexão] [opções] [nome_banco] [descrição]
+A descrição é um comentário que pode ser associado ao novo banco criado.
+As opções mais comuns do comando createdb são:
+-O proprietário
+Nome do usuário que será o proprietário do banco
+
+-E codificação, --encoding=codificação
+Especifica o esquema de codificação a ser usado no banco de dados.
+
+-T template, --template=template
+Especifica o template (modelo) de banco de dados a ser utilizado na criação do novo banco.
+
+-l, --locale=locale
+Especifica o locale a ser utilizado pelo banco de dados.
+
+-?, --help
+Mostra a ajuda do comando createdb
+-e, --echo
+Ecoa os comandos gerados pelo createdb e os envia ao servidor (mostra o SQL gerado)
+Já os principais argumentos de linha de comando para os parâmetros de conexão são:
+-h host, --host=host
+ Especificar o nome de host da máquina na qual o servidor está sendo executado.
+
+-p porta, --port=porta
+ Especifica a porta TCP na qual o servidor escuta as conexões
+
+-U nome_usuário, --username=nome_usuário
+ Nome do usuário que será utilizado na conexão.
+Exemplo
+Por exemplo, vamos criar um banco de dados de nome teste01:
+$ createdb teste01
+
+
+Podemos também especificar um usuário diferente para ser o proprietário do banco criado, usando a opção -O. por exemplo, se quisermos que o usuário fabio seja o proprietário do banco teste01, executaremos:
+
+$ createdb -O fabio teste01
+
+Na verdade, o comando createdb nada mais é do que um invólucro para o comando SQL CREATE DATABASE, e não há diferença entre usar um ou outro.
+Para verificar se o banco de dados foi criado com sucesso, execute o comando psql seguido do nome do banco, e logo após o comando \l para listar os bancos existentes, como segue:
+
+$ psql teste01
+
+
+teste01=# \l
+Veja o resultado na figura a seguir, que mostra o banco teste01 criado e seu proprietário, o usuário fabio, além de outros bancos padrão do sistema:
+
+
+uir banco de dados com dropdb
+Para excluir um banco do sistema execute no terminal do sistema o comando dropdb, seguido do nome do banco (é necessário ter permissão para excluir o banco). Veja o exemplo a seguir:
+
+$ dropdb teste01
+
+
+Dessa forma, o banco teste01 será excluido do postgres.
+
+
+
+Instalando o servidor PostgreSQL
+Se o servidor de banco de dados ainda não foi instalado, vamos precisar rodar esses comandos no prompt do sistema:
+
+
+$ sudo apt update && sudo apt dist-upgrade
+$ sudo apt install postgresql postgresql-contrib
+
+
+PostgreSQL trabalha com o conceito de “role”, similar ao usado nos sistemas Unix/Linux para gerenciar usuários e permissões. A instalação do servidor vai criar um usuário padrão postgres, por tanto, iremos logar com essas credenciais e, depois disso, acessar o prompt para gerenciar os nossos bancos de dados com o comando psql:
+
+$ sudo -i -u postgres
+$ psql
+
+psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))
+Type "help" for help.postgres=#
+Para sair do prompt, digitamos \q:
+
+postgres=# \q
+
+E, para retornar pro nosso usuário no sistema (lembre-se que tínhamos aberto uma sessão com o usuário posgres) basta digitar Ctrl+d.
+Criando um banco de dados
+Uma vez logados com o usuário postgres, vamos criar um banco de dados para testes e vamos acessar o prompt de comandos para começar o gerenciamento básico de tabelas e dados:
+
+$ createdb teste
+
+Perceba que o prompt recebe o nome do banco de dados que estamos usando nesse momento:
+
+$ psql -d teste
+
+
+psql (10.10 (Ubuntu 10.10-0ubuntu0.18.04.1))
+Type "help" for help.teste=#
+Podemos listar os bancos de dados no servidor com o comando \l:
+teste=# \l...
+ teste     | postgres | UTF8     | C.UTF-8 | C.UTF-8 | 
+(4 rows)
+Criando a nossa primeira tabela
+As tabelas organizam os dados em um banco relacional. Antes do que nada, precisamos criar alguma tabela:
+teste=# CREATE TABLE aluno (
+ra serial PRIMARY KEY,
+nome varchar (120) NOT NULL 
+);
+CREATE TABLE
+Listamos as nossas tabelas com o comando \dt:
+teste=# \dt
+         List of relations
+ Schema | Name  | Type  |  Owner   
+--------+-------+-------+----------
+ public | aluno | table | postgres
+(1 row)
+E obtemos uma descrição da estrutura das mesmas com o comando \d:
+teste=# \d aluno
+Seja CRUD
+Agora você pode começar a experimentar e praticar as suas destrezas na linguagem SQL, todos aqueles inserts, selects e delets da vida:
+teste=# INSERT INTO aluno VALUES (1900543, 'João');
+INSERT 0 1teste=# SELECT * FROM aluno;
+   ra    | nome 
+---------+------
+ 1900543 | João
+(1 row)teste=# DELETE FROM aluno WHERE ra = 1900543;
+DELETE 1teste=# SELECT * FROM aluno;
+ ra | nome 
+----+------
+(0 rows)
+Com esse artigo encerramos essa série sobre três dos principais SGBD open source da atualidade: MySQL, SQLite e PostgreSQL. Espero ter ajudado você a dar esses seus primeiros passos e motivado você para seguir aprendendo sobre banco de dados relacionais e sobre essa ferramenta essencial que é a linha de comandos.
+
+
+
+Simples, na máquina com o banco instalado siga os seguintes passos.
+
+Logue-se como root, tecle "su root" ou "sudo -i" no Ubuntu (no terminal a mensagem padrão deve terminar com #).
+
+Entre como usuário postgres comando:
+
+# su postgres
+
+Conecte no banco comando:
+
+ psql
+
+Agora deve aparecer a frase de boas vindas (Bem vindo ao psql...) e você está no terminal do posgres.
+
+Entre com o comando:
+
+CREATE USER nomedousuario SUPERUSER INHERIT CREATEDB CREATEROLE;
+
+e tecle enter.
+
+Depois entre com o comando:
+
+ALTER USER nomedousuario PASSWORD 'senha';
+
+e tecle enter.
+
+Pronto! Usuário criado.
+
+LISTAR BANCOS:  
+
+     psql -h localhost --username=dimmu --list 
+
+
+LISTAR TABELAS: 
+
+\dn+ --list schemas
+
+
+STRING D ECONEXÃO:
+
+DATABASE_URL="postgresql://dimmu:jogu3340@localhost:5432/testes?schema=schema.prisma"

@@ -1,0 +1,6 @@
+
+ 
+  1 - yarn add prisma -D
+
+  2 - yarn prisma init
+

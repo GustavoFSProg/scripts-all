@@ -1,0 +1,7 @@
+
+
+ 1 - sudo npm -g install create-react-app
+
+ 2 - create-react-app --version
+
+ 3 -create-react-app <nameApp> --template=typescript
