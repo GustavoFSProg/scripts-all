@@ -1,0 +1,135 @@
+﻿Aplicando filtros CSS
+Publicado em: 09/12/2014
+Atualizações: 03/12/2016
+Introdução
+A especificação do W3C denominada Filter Effects Module Level 1 encontra-se na fase de Rascunho de Trabalho, mas muitas das funcionalidades ali previstas já são suportadas nativamente por todos os navegadores modernos (consulte caniuse - abre em nova janela) e você pode começar a fazer suas experiências criando os efeitos que se obtem com uso de filtros CSS.
+São previstos pelo W3C dois mecanismos para aplicação de filtros: filtros SVG e filtros gráficos. Os filtross gráficos são obtidos com uso da propriedade CSS filter com valor expresso por uma ou mais funções CSS destinadas a aplicar efeitos em um elemento da marcação HTML. Neste tutorial estudaremos os filtros gráficos.
+A interação com os filtros, constante desta página, deve ser visualizada nos navegadores Chrome 31+, Opera 18+ ou Safari 7+. O próximo Firefox 35 oferecerá suporte e o IE não oferece suporte. em qualquer um dos navegadores modernos conforme mostrados no site caniuse cujo link apontamos no primeiro parágrafo anterior.
+As funções previstas nas especificações para aplicação dos efeitos de filtragem são listadas a seguir:
+    • blur()
+    • brightness()
+    • contrast()
+    • grayscale()
+    • invert()
+    • opacity()
+    • saturate()
+    • sepia()
+    • hue-rotate()
+    • drop-shadow()
+Vejamos a seguir, com detalhes, cada uma destas funções para filtros.
+blur()
+O efeito obtido com aplicação desta função de filtragem é o conhecido Gaussian blur ou desfoque gaussiano. O maior ou menor grau de desfoque é obtido pelo chamado raio de desvio da curva de Gauss. O raio de desvio é o parâmetro da função e deve ser expresso em uma unidade de medida CSS, de valor positivo.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: blur(medida CSS); }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: blur() }
+
+brightness()
+O efeito obtido com aplicação desta função de filtragem é o de aumentar ou diminuir o brilho da imagem. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 0% ou 0 resulta em imagem completamente escura (preta) e o valor igual a 100% ou 1 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos e resultam em imagens mais brilhantes que a original.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: brightness(número ou porcentagem);  }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: brightness()}
+
+contrast()
+O efeito obtido com aplicação desta função de filtragem é o de aumentar ou diminuir o contraste da imagem. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 0% ou 0 resulta em imagem com máximo contraste (cinza) e o valor igual a 100% ou 1 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos e resultam em imagens com menor contraste que a original.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: contrast(número ou porcentagem); }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: contrast() }
+
+grayscale()
+O efeito obtido com aplicação desta função de filtragem é o de passar a imagem para tons de cinza. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 100% ou 1 resulta em imagem totalmente em tons de cinza e o valor igual a 0% ou 0 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos mas causam o mesmo efeito que o valor 100% ou 1.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: grayscale(número ou porcentagem);   }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: grayscale()}
+
+invert()
+O efeito obtido com aplicação desta função de filtragem é o de inverter as cores da imagem. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 100% ou 1 resulta em imagem com cores totalmente invertidas e o valor igual a 0% ou 0 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos mas causam o mesmo efeito que o valor 100% ou 1.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: invert(número ou porcentagem); }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: invert()}
+
+opacity()
+O efeito obtido com aplicação desta função de filtragem é o de aplicar opacidade na imagem. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 0% ou 0 resulta em imagem totalmente transparente e o valor igual a 100% ou 1 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos mas causam o mesmo efeito que o valor 100% ou 1.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: opacity(número ou porcentagem); }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: opacity()}
+
+saturate()
+O efeito obtido com aplicação desta função de filtragem é o de saturar as cores da imagem. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 0% ou 0 resulta em imagem não saturada e o valor igual a 100% ou 1 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos e resultam em super-saturação da imagem.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: saturate(número ou porcentagem); }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: saturate()}
+
+sepia()
+O efeito obtido com aplicação desta função de filtragem é o de converter as cores da imagem para tons sépia. Os valores CSS possíveis para o parâmetro desta função são a porcentagem ou um número expressando uma porcentagem. Valores negativos são inválidos. O valor igual a 100% ou 1 resulta em imagem totalmente em tons sépia e o valor igual a 0% ou 0 é o valor padrão, isto é, a imagem original. Valores maiores que 100% são permitidos mas causam o mesmo efeito que o valor 100% ou 1.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: sepia(número ou porcentagem); }
+HTML
+        
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: sepia()}
+
+hue-rotate()
+O efeito obtido com aplicação desta função de filtragem é o de converter as cores da imagem para tons em acordo com o ângulo da propriedade hue da cor. Os valor CSS possível para o parâmetro desta função é o ângulo. Valores negativos são inválidos. O valor igual a 0% ou 0 é o valor padrão, isto é, a imagem original. Mais sobre hue...
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: hue-rotate(número ou porcentagem); }
+HTML
+<img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando o slider a seguir
+img{ filter: hue-rotate()}
+
+drop-shadow()
+O efeito obtido com aplicação desta função de filtragem é o de sombras na imagem. Os valores CSS possíveis para o parâmetro desta função são duas ou três unidades de medida de comprimento CSS e uma cor. Os valores declarados nos parâmetros desta função têm o mesmo significado e finalidades dos valores declarados para a propriedade CSS box-shadow, ou seja, o primeiro valor define um offset horizontal para a sombra o segundo um offset vertical e o terceiro, opcional, um raio para blur da sombra. Não existe um quarto valor para definir a expansão ou contração da sombra tal como existe para a propriedade box-shadow. O quarto parâmetro da função define a cor da sombra.
+O exemplo mostrado a seguir esclarece a aplicação deste tipo de filtro
+CSS
+  img { filter: box-shadow( <medida>{2,3} <color>? ); }
+HTML
+  <img src="imagem.jpg" alt="descrição da imagem">  
+Aplique o filtro deslizando os slideres a seguir
+Offset horizontal:
+Offset vertical:
+Raio blur:
+Cor:
+
+
+img{ filter: drop-shadow()}
+
+Múltiplos filtros
+A especificação prevê a possibilidade de se aplicar mais de um filtro a uma imagem. A sintaxe para aplicação de filtros múltiplos é constituida por uma lista das funções de filtragem separadas por espaço em branco. No exemplo mostrado a seguir aplicamos os filtros saturate(), invert() e drop-shadow().
+CSS
+img 
+{       
+  filter: saturate(32%) invert(87%) drop-shadow(20px -20px 10px #0000ff); 
+}
+
+
