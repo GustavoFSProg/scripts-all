@@ -1,0 +1,12 @@
+﻿@-moz-document url-prefix() {
+ .divPosit{
+  padding-left: 10px;
+  border: 2px;
+ }
+}
+
+
+@-moz-document url-prefix() {
+height: 47rem;
+}
+

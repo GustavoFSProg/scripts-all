@@ -1,0 +1,11 @@
+﻿heroku git:remote -a crud-prisma-app
+
+git add .
+
+git commit -m “whatrever”
+
+git push heroku master
+
+
+
+ heroku git:remote -a vidya-yoga-app
