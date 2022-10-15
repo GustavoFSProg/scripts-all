@@ -1,0 +1,19 @@
+﻿1 – Create new project:
+	
+	rails new project_name
+
+2 – Iniciar projeto:
+	
+    rails server
+
+3 – Criar um CRUD
+	
+	rails g scaffold Hero name:string
+
+4 – Criar um Database:
+	
+	rails db:create
+
+5 – Criar as tabelas:
+	
+	rails db:migrate
