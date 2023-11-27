@@ -1,0 +1,32 @@
+﻿1 – ls -al ] /.ssh
+
+
+2 – CRIA A CHAVE
+ 
+	ssh-keygen -t ed25519 -C “gustavo.prog40@gmail.com”
+
+
+3 – STARTAR O AGENT:
+
+ 	eval “$(ssh-agent -s)”
+
+
+
+4 – Adicionar no diretorio:
+
+	ssh-add ~/.ssh/id_ed25519
+
+
+5 – Gerar nova
+	
+	 ssh-keygen t ed25519-sk -C “gustavo.prog40@gmail.com”
+
+
+
+6 – Comando pra copiar a nova chave
+
+	cat ~/.ssh/id_25519.pub
+
+
+
+7 – no github criar uma nova chave ssh e colar a chave acima
