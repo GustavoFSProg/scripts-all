@@ -178,6 +178,19 @@ e tecle enter.
 
 Pronto! Usuário criado.
 
+
+PRIMEIROS PASSOS:
+
+ 1 – Entrar no postgres:
+ 
+	sudo -i -u postgres
+
+$2 – psql
+
+sair:
+ \q
+
+
 LISTAR BANCOS:  
 
      psql -h localhost --username=dimmu --list 
@@ -186,6 +199,10 @@ LISTAR BANCOS:
 LISTAR TABELAS: 
 
 \dn+ --list schemas
+
+LISTAR USUARIOS:
+
+select * from pg_user;
 
 
 STRING D ECONEXÃO:

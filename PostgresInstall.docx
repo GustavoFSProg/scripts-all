@@ -1,0 +1,82 @@
+﻿Como instalar PostgreSQL e pgAdmin4 no Linux Mint 21/20
+
+O pgAdmin é uma ferramenta de gerenciamento de front-end de código aberto e rica em recursos que permite administrar e gerenciar facilmente seu banco de dados relacional PostgreSQL a partir de um navegador da web.
+Ele fornece uma interface de usuário fácil de usar que simplifica a criação e monitoramento de bancos de dados e objetos de banco de dados. PgAdmin 4 é uma melhoria da ferramenta pgAdmin anterior e está disponível para sistemas Linux, Windows, macOS e até mesmo um contêiner Docker.
+Neste tutorial, você aprenderá como instalar o PostgreSQL com pgAdmin4 no Linux Mint 21 e no Linux Mint 20.
+Etapa 1: instalar o banco de dados PostgreSQL no Linux Mint
+1. Para começar, inicie seu terminal e atualize seus pacotes usando o gerenciador de pacotes apt conforme mostrado.
+$ sudo apt update -y
+Quando a atualização estiver concluída, prossiga para a próxima etapa.
+Uma vez que o pgAdmin4 fornece uma interface front-end para o gerenciamento de objetos de banco de dados PostgreSQL, é essencial ter o PostgreSQL instalado primeiro.
+2. Para fazer isso, vamos instalar o pacote postgresql e postgresql-contrib que oferece recursos estendidos que estendem a funcionalidade do >PostgreSQL.
+$ sudo apt install postgresql postgresql-contrib
+
+3. Geralmente, o PostgreSQL inicia automaticamente na inicialização. Você pode confirmar isso usando o comando fornecido abaixo:
+$ sudo systemctl status postgresql
+
+4. Para efetuar login em sua instância PostgreSQL, primeiro alterne para o usuário postgres. O usuário Postgres vem incluído por padrão com a instalação do PostgreSQL. Em seguida, execute o comando psql conforme mostrado.
+$ sudo -i -u postgres
+$ psql
+# \q
+
+5. Além disso, você pode verificar se o servidor de banco de dados está aceitando conexões de entrada conforme mostrado.
+$ sudo pg_isready
+
+Passo 2: Instale o pgAdmin4 no Linux Mint
+pgAdmin4 está disponível para Ubuntu 16.04 e versões posteriores e pode ser facilmente instalado usando o gerenciador de pacotes APT. O mesmo não suporta Linux Mint e os desenvolvedores Pgadmi4 ainda não incluem suporte que permite aos usuários instalar facilmente a ferramenta de gerenciamento de front-end usando o gerenciador de pacotes APT.
+6. A única opção viável é instalar o pgAdmin4 a partir de um ambiente virtual. Então, primeiro, instalaremos os pacotes de pré-requisito conforme mostrado.
+$ sudo apt install libgmp3-dev build-essential libssl-dev
+
+7. Em seguida, instale o ambiente virtual Python e as dependências associadas.
+$ sudo apt install python3-virtualenv python3-dev libpq-dev
+
+8. Em seguida, crie um diretório onde você criará um ambiente virtual.
+$ mkdir pgadmin4 && cd pgadmin4
+9. Em seguida, crie o ambiente virtual conforme mostrado. Aqui, pgadmin4env é o nome do ambiente virtual.
+$ virtualenv pgadmin4env
+
+10. Assim que o ambiente virtual estiver instalado, ative-o conforme mostrado.
+$ source pgadmin4env/bin/activate
+11. Em seguida, use a ferramenta pip para instalar pgadmin4 como mostrado.
+$ pip install https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.15/pip/pgadmin4-6.15-py3-none-any.whl
+
+12. Em seguida, crie um arquivo de configuração config_local.py.
+-------- On Linux Mint 20 --------
+$ sudo nano pgadmin4env/lib/python3.8/site-packages/pgadmin4/config_local.py
+
+-------- On Linux Mint 21 --------
+$ sudo nano pgadmin4env/lib/python3.10/site-packages/pgadmin4/config_local.py
+e adicione as linhas abaixo.
+import os
+DATA_DIR = os.path.realpath(os.path.expanduser(u'~/.pgadmin/'))
+LOG_FILE = os.path.join(DATA_DIR, 'pgadmin4.log')
+SQLITE_PATH = os.path.join(DATA_DIR, 'pgadmin4.db')
+SESSION_DB_PATH = os.path.join(DATA_DIR, 'sessions')
+STORAGE_DIR = os.path.join(DATA_DIR, 'storage')
+SERVER_MODE = False
+AZURE_CREDENTIAL_CACHE_DIR = os.path.join(DATA_DIR, 'azurecredentialcache')
+
+13. Para iniciar a ferramenta de gerenciamento pgAdmin4, invoque o comando:
+-------- On Linux Mint 20 -------- 
+$ python pgadmin4env/lib/python3.8/site-packages/pgadmin4/pgAdmin4.py
+
+-------- On Linux Mint 21 --------
+$ python pgadmin4env/lib/python3.10/site-packages/pgadmin4/pgAdmin4.py
+
+14. Por fim, acesse seu navegador e navegue até o endereço exibido.
+http://127.0.0.1:5050
+Você será solicitado a definir a senha mestra, então prossiga e defina uma senha forte e clique no botão 'Ok'.
+
+15. Para facilitar as coisas, você pode criar um alias no arquivo ~/.bashrc conforme mostrado.
+-------- On Linux Mint 20 -------- 
+$ echo "alias startPg='~/pgadmin4/pgadmin4env/bin/python pgadmin4env/lib/python3.8/site-packages/pgadmin4/pgAdmin4.py'" >> ~/.bashrc
+
+-------- On Linux Mint 21 -------- 
+$ echo "alias startPg='~/pgadmin4/pgadmin4env/bin/python pgadmin4env/lib/python3.10/site-packages/pgadmin4/pgAdmin4.py'" >> ~/.bashrc
+16. Em seguida, atualize o arquivo bashrc.
+$ source ~/.bashrc
+17. Finalmente, você pode iniciar a ferramenta de gerenciamento pgAdmin4 simplesmente invocando o comando startPg.
+$ startPg &
+
+Mais uma vez, vá para o seu navegador e faça login na interface PgAdmin4. E isso conclui a instalação do PostgreSQL com pgAdmin4 no Linux Mint 21 e Linux Mint 20.
+
