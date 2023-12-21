@@ -15,9 +15,13 @@ $ sudo apt install postgresql postgresql-contrib
 $ sudo systemctl status postgresql
 
 4. Para efetuar login em sua instância PostgreSQL, primeiro alterne para o usuário postgres. O usuário Postgres vem incluído por padrão com a instalação do PostgreSQL. Em seguida, execute o comando psql conforme mostrado.
+
+
 $ sudo -i -u postgres
 $ psql
 # \q
+
+
 
 5. Além disso, você pode verificar se o servidor de banco de dados está aceitando conexões de entrada conforme mostrado.
 $ sudo pg_isready

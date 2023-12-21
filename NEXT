@@ -1,0 +1,6 @@
+
+ 1 - pnpm create-next-app nome-do-projeto
+
+                ou
+    
+    npx create-next-app nome-do-projeto
