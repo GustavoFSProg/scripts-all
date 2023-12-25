@@ -19,13 +19,13 @@
 
 5 – Gerar nova
 	
-	 ssh-keygen t ed25519-sk -C “gustavo.prog40@gmail.com”
+	 ssh-keygen -t ed25519-sk -C “gustavo.prog40@gmail.com”
 
 
 
 6 – Comando pra copiar a nova chave
 
-	cat ~/.ssh/id_25519.pub
+	cat ~/.ssh/id_ed25519.pub
 
 
 
