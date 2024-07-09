@@ -1,0 +1,70 @@
+{
+  "editor.fontFamily": "'Fira Code'",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontSize": 15,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 100,
+  "prettier.semi": false,
+  "prettier.tabWidth": 2,
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+  "eslint.format.enable": true,
+  "prettier.embeddedLanguageFormatting": "auto",
+  "editor.rulers": [100],
+  "emmet.syntaxProfiles": {
+    "javascript": ["jsx", "js", "ts", "tsx"]
+  },
+
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[typescriptReact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "editor.unicodeHighlight.allowedCharacters": {
+    "’": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "html.format.preserveNewLines": false,
+  "extensions.autoCheckUpdates": false,
+  "editor.formatOnType": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "git.ignoreRebaseWarning": true,
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.env.linux": {},
+  "workbench.colorTheme": "Omni",
+  "workbench.editor.empty.hint": "hidden",
+  "terminal.integrated.shellIntegration.enabled": false,
+  "[javascript][javascriptreact][typescript][typescriptReact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  }
+}
+

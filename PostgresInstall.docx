@@ -5,10 +5,14 @@ Ele fornece uma interface de usuário fácil de usar que simplifica a criação 
 Neste tutorial, você aprenderá como instalar o PostgreSQL com pgAdmin4 no Linux Mint 21 e no Linux Mint 20.
 Etapa 1: instalar o banco de dados PostgreSQL no Linux Mint
 1. Para começar, inicie seu terminal e atualize seus pacotes usando o gerenciador de pacotes apt conforme mostrado.
+
 $ sudo apt update -y
+
 Quando a atualização estiver concluída, prossiga para a próxima etapa.
 Uma vez que o pgAdmin4 fornece uma interface front-end para o gerenciamento de objetos de banco de dados PostgreSQL, é essencial ter o PostgreSQL instalado primeiro.
 2. Para fazer isso, vamos instalar o pacote postgresql e postgresql-contrib que oferece recursos estendidos que estendem a funcionalidade do >PostgreSQL.
+
+
 $ sudo apt install postgresql postgresql-contrib
 
 3. Geralmente, o PostgreSQL inicia automaticamente na inicialização. Você pode confirmar isso usando o comando fornecido abaixo:
