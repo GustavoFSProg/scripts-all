@@ -195,6 +195,7 @@ LISTAR BANCOS:
 
      psql -h localhost --username=dimmu --list 
 
+psql -h localhost --username=borgir --list 
 
 LISTAR TABELAS: 
 
@@ -207,4 +208,4 @@ select * from pg_user;
 
 STRING D ECONEXÃO:
 
-DATABASE_URL="postgresql://dimmu:jogu3340@localhost:5432/testes?schema=schema.prisma"
+DATABASE_URL="postgresql://borgir:jogu3340@localhost:5432/testes?schema=schema.prisma"

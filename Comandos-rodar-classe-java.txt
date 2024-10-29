@@ -1,0 +1,10 @@
+
+ no terminal:
+
+ Criar a Classe principal:
+
+  1 - javac nomearquivo.java
+
+  Executar o arquivo java
+
+  2 - java nomearquivo.java

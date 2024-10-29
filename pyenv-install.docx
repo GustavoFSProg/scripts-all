@@ -49,4 +49,6 @@ Agora é só instalar as versões que te interessarem da lista.
 Abraço e até a próxima.
 
 Fonte: https://github.com/yyuu/pyenv
+ATIVANDO O VENV no LINUX:
 
+source .venv/bin/activate 
