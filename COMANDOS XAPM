@@ -1,0 +1,27 @@
+
+ 
+        INICIAR O XAMP:
+
+   sudo  /opt/lampp/manager-linux-x64.run
+
+por 3306
+
+
+        COMANDOS PRA FUNCIONAR O MYSQL NO XAMP:
+
+        
+        1 - sudo /etc/init.d/mysql stop
+        
+        2 - sudo  /opt/lampp/lampp restart
+
+
+http://localhost/phpmyadmin/
+
+
+
+INSERT INTO  clientes(name, email,fone,login,senha)values('Gustavo SS', 'gusta@gmail.com', '963698','gusta','123')
+
+INSERT INTO  clientes(name, email,fone,login,senha)values('Gustavo SS', 'gusta@gmail.com', '963698','gusta','123')
+
+
+jdbc:mysql://localhost:3306/crud_java [root on Default schema]
